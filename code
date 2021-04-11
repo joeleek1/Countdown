@@ -1,0 +1,22 @@
+import random
+
+lis = []
+
+for i in range(6):
+    inp = input('Type number...')
+    lis.append(inp)
+
+print(lis)
+
+
+opp = ['+', '-', '*', '/']
+target = int(input('Type desired solution;\n>>>> '))
+def ranop():
+    return random.choice(opp)
+
+for i in range(2000000):
+    lisa = random.shuffle(lis)
+    computation = '(' + lis[0] + ranop() + lis[1] + ')' + ranop() + lis[2] + ranop() + '(' + lis[3] + ranop() + lis[4] + ')' + ranop() + lis[5]
+    ans = eval(computation)
+    if ans == target:
+        print(computation, '=', eval(computation))
